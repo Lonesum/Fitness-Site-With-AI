@@ -10,14 +10,22 @@
         <module name="aiservice" />
         <module name="activityservice" />
         <module name="eureka" />
+      </profile>
+      <profile name="Annotation profile for userservice" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
         <module name="userservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="activityservice" target="25" />
-      <module name="aiservice" target="25" />
+      <module name="activityservice" target="21" />
+      <module name="aiservice" target="21" />
       <module name="eureka" target="17" />
-      <module name="userservice" target="25" />
+      <module name="userservice" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

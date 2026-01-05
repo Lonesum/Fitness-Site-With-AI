@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/configserver/pom.xml" />
         <option value="$PROJECT_DIR$/configserver/configserver/pom.xml" />
         <option value="$PROJECT_DIR$/getway/getway/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/gateway/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

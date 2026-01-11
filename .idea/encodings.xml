@@ -12,5 +12,6 @@
     <file url="file://$PROJECT_DIR$/gateway/gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/userservice/userservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/userservice/userservice/src/main/resources" charset="UTF-8" />
   </component>
 </project>

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee558e33-77d7-43d1-aac4-ffd8dd2d5738" name="Changes" comment="fix backend" />
+    <list default="true" id="ee558e33-77d7-43d1-aac4-ffd8dd2d5738" name="Changes" comment="Frontend fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitness-app-frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/fitness-app-frontend/src/App.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,6 +163,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix backend" />
+    <MESSAGE value="Frontend fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Frontend fix" />
   </component>
 </project>

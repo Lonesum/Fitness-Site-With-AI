@@ -2,56 +2,74 @@ import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField } fro
 import React, { useState } from 'react'
 import { addActivity } from '../services/api'
 
-
 const ActivityForm = ({ onActivityAdded }) => {
+    // Get the userId from localStorage
+    const userId = localStorage.getItem('userId');
 
     const [activity, setActivity] = useState({
-        type: "RUNNING", duration: '', caloriesBurned: '',
+        type: "RUNNING", 
+        duration: '', 
+        caloriesBurned: '',
         additionalMetrics: {}
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await addActivity(activity);
+            // Combine form data with the userId before sending
+            const activityPayload = {
+                ...activity,
+                userId: userId // Include the missing userId
+            };
+
+            await addActivity(activityPayload);
             onActivityAdded();
-            setActivity({ type: "RUNNING", duration: '', caloriesBurned: ''});
+            
+            // Reset form
+            setActivity({ 
+                type: "RUNNING", 
+                duration: '', 
+                caloriesBurned: '', 
+                additionalMetrics: {} 
+            });
         } catch (error) {
-            console.error(error);
+            console.error("Failed to add activity:", error);
         }
     }
     
-  return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
-    <FormControl fullWidth sx={{mb: 2}}>
-        <InputLabel>Activity Type</InputLabel>
-        <Select
-            value={activity.type}
-            onChange={(e) => setActivity({...activity, type: e.target.value})}>
-                <MenuItem value="RUNNING">Running</MenuItem>
-                <MenuItem value="WALKING">Walking</MenuItem>
-                <MenuItem value="CYCLING">Cycling</MenuItem>
-            </Select>
-    </FormControl>
-    <TextField fullWidth
+    return (
+        <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
+            <FormControl fullWidth sx={{ mb: 2 }}>
+                <InputLabel>Activity Type</InputLabel>
+                <Select
+                    value={activity.type}
+                    onChange={(e) => setActivity({ ...activity, type: e.target.value })}>
+                    <MenuItem value="RUNNING">Running</MenuItem>
+                    <MenuItem value="WALKING">Walking</MenuItem>
+                    <MenuItem value="CYCLING">Cycling</MenuItem>
+                </Select>
+            </FormControl>
+            <TextField 
+                fullWidth
                 label="Duration (Minutes)"
                 type='number'
-                sx={{ mb: 2}}
+                sx={{ mb: 2 }}
                 value={activity.duration}
-                onChange={(e) => setActivity({...activity, duration: e.target.value})}/>
-
-<TextField fullWidth
+                onChange={(e) => setActivity({ ...activity, duration: e.target.value })} 
+            />
+            <TextField 
+                fullWidth
                 label="Calories Burned"
                 type='number'
-                sx={{ mb: 2}}
+                sx={{ mb: 2 }}
                 value={activity.caloriesBurned}
-                onChange={(e) => setActivity({...activity, caloriesBurned: e.target.value})}/>
-
-<Button type='submit' variant='contained'>
-    Add Activity
-</Button>
-  </Box>
-  )
+                onChange={(e) => setActivity({ ...activity, caloriesBurned: e.target.value })} 
+            />
+            <Button type='submit' variant='contained'>
+                Add Activity
+            </Button>
+        </Box>
+    )
 }
 
-export default ActivityForm
+export default ActivityForm;
